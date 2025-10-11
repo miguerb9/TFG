@@ -11,8 +11,10 @@ $user = $_SESSION['user'];
 include '../../includes/header.php';
 include 'navbarAdmin.php';
 ?>
-
+<main>
   <h1>Bienvenido al panel de administración, <?= htmlspecialchars($user['nombre']) ?></h1>
+</main>
+  
 
 
 <?php

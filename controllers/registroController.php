@@ -32,14 +32,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // 🔹 Registrar el usuario
     if (Usuario::registrar($nombre, $email, $password, $rol)) {
-        echo "✅ Registro exitoso. Ya puedes iniciar sesión.";
-        // Si quieres redirigir automáticamente al login, descomenta esta línea:
-        header("Location: ../public/index.php");
-        exit;
+    // Iniciar sesión automáticamente
+    session_start();
+    $_SESSION['user'] = [
+        'nombre' => $nombre,
+        'email' => $email,
+        'rol' => $rol
+    ];
+    
+    echo "✅ Registro exitoso. Redirigiendo...";
+    header("Location: ../public/index.php");
+    exit;
     } else {
-        global $conn;
-        echo "❌ Error al registrar el usuario: " . mysqli_error($conn);
-    }
+    global $conn;
+    echo "❌ Error al registrar el usuario: " . mysqli_error($conn);
+}
 } else {
     echo "⚠️ Acceso no permitido.";
 }

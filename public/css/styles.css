@@ -10,6 +10,9 @@ body {
   flex-direction: column !important;
   min-height: 100vh !important;
 }
+main {
+  flex: 1;
+}
 /*includes*/
 /*Footer*/
 .footer {
@@ -183,4 +186,57 @@ body {
 .registroUsuarios h2 {
   color: #222;
   font-weight: 600;
+}
+
+/*index.php*/
+.sport-card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none; /* para que el texto no tenga subrayado */
+}
+
+.sport-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.sport-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.sport-card:hover img {
+  transform: scale(1.05);
+  filter: brightness(0.7);
+}
+
+.sport-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  padding-bottom: 1rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  opacity: 0.95;
+  transition: background 0.3s ease;
+}
+
+.sport-overlay span {
+  color: #fff;
+  font-family: var(--bs-body-font-family); /* usa la fuente del sitio */
+  font-size: 1.25rem;
+  font-weight: 600; /* ligeramente en negrita, pero coherente */
+  letter-spacing: 0.5px;
+}
+
+.sport-card:hover .sport-overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
 }

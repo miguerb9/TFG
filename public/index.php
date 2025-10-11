@@ -22,33 +22,50 @@ include_once __DIR__ . '/../includes/navbar.php';
   <div class="container text-center mt-4">
     <h1 class="mb-4">Reserva tu pista</h1>
     <p class="lead">Selecciona el deporte que deseas practicar</p>
-
-    <div class="sports-grid">
-      <!-- Pádel -->
+     <div class="row g-4 justify-content-center">
+      
+    <!-- Pádel -->
+    <div class="col-6 col-md-3">
       <a href="reserva_padel.php" class="sport-card">
-        <img src="img/padel.png" alt="Pádel">
-        <div class="sport-title">Pádel</div>
+        <img src="img/padel.png" alt="Pádel" class="img-fluid">
+        <div class="sport-overlay">
+          <span>Pádel</span>
+        </div>
       </a>
+    </div>
 
-      <!-- Fútbol -->
+    <!-- Fútbol -->
+    <div class="col-6 col-md-3">
       <a href="reserva_futbol.php" class="sport-card">
-        <img src="img/futbol.png" alt="Fútbol">
-        <div class="sport-title">Fútbol</div>
+        <img src="img/futbol.png" alt="Fútbol" class="img-fluid">
+        <div class="sport-overlay">
+          <span>Fútbol</span>
+        </div>
       </a>
+    </div>
 
-      <!-- Tenis -->
+    <!-- Tenis -->
+    <div class="col-6 col-md-3">
       <a href="reserva_tenis.php" class="sport-card">
-        <img src="img/tenis.png" alt="Tenis">
-        <div class="sport-title">Tenis</div>
+        <img src="img/tenis.png" alt="Tenis" class="img-fluid">
+        <div class="sport-overlay">
+          <span>Tenis</span>
+        </div>
       </a>
+    </div>
 
-      <!-- Baloncesto -->
+    <!-- Baloncesto -->
+    <div class="col-6 col-md-3">
       <a href="reserva_baloncesto.php" class="sport-card">
-        <img src="img/baloncesto.png" alt="Baloncesto">
-        <div class="sport-title">Baloncesto</div>
+        <img src="img/baloncesto.png" alt="Baloncesto" class="img-fluid">
+        <div class="sport-overlay">
+          <span>Baloncesto</span>
+        </div>
       </a>
     </div>
   </div>
+</div>
+
 <?php include_once __DIR__ . '/../includes/footer.php'; ?>
 </body>
 </html>
