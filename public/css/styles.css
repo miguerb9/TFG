@@ -1,0 +1,186 @@
+html,
+body {
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body {
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 100vh !important;
+}
+/*includes*/
+/*Footer*/
+.footer {
+  background-color: rgba(0, 0, 0, 0.8); /* negro con opacidad */
+  backdrop-filter: blur(6px); /* un leve desenfoque detrás */
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem 0;
+  z-index: 5;
+}
+
+/*Navbar*/
+/* ======== NAVBAR BASE ======== */
+.mi-navbar {
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+/* ======== CONTENEDOR ======== */
+.mi-navbar .navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ======== LOGO ======== */
+.mi-navbar .navbar-logo img {
+  height: 40px; /* ajusta el tamaño del logo */
+  width: auto;
+  display: block;
+}
+
+/* ======== ENLACES ======== */
+.mi-navbar .navbar-links {
+  list-style: none; /* 🔹 elimina los puntos (viñetas) */
+  display: flex; /* 🔹 los pone en fila */
+  gap: 2rem; /* 🔹 separación entre enlaces */
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.navbar-links a:hover {
+  color: #007bff;
+}
+
+/*login.php*/
+.login-container {
+  position: relative;
+  height: calc(100vh - 180px); /* restas navbar (~80px) + footer (~100px) */
+  overflow: hidden;
+}
+
+/* 4 imágenes de fondo */
+.bg-img {
+  position: fixed;
+  width: 50%;
+  height: 50%;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  filter: brightness(0.7);
+}
+
+.top-left {
+  top: 0;
+  left: 0;
+  background-image: url("../img/padelRealista.png");
+}
+
+.top-right {
+  top: 0;
+  right: 0;
+  background-image: url("../img/tenisRealista.png");
+}
+
+.bottom-left {
+  bottom: 0;
+  left: 0;
+  background-image: url("../img/futbolRealista.png");
+}
+
+.bottom-right {
+  bottom: 0;
+  right: 0;
+  background-image: url("../img/baloncestoRealista.png");
+}
+
+/* capa de oscuridad */
+.login-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+/* centrado del form */
+.login-form-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100vh; /* altura completa de la pantalla */
+  display: flex;
+}
+
+.login-card {
+  width: 100%; /* ancho completo en móviles */
+  max-width: 580px; /* ancho máximo en pantallas grandes */
+  animation: fadeIn 0.8s ease; /* animación de aparición */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*registro.php*/
+/* --- Fondo del registro (mismo set de imágenes, más desenfocado) --- */
+.mi-registro {
+  position: relative;
+  height: calc(100vh - 180px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Oscurece y desenfoca el fondo solo en registro */
+.mi-registro::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(5px); /* 👈 aplica desenfoque */
+  background: rgba(0, 0, 0, 0.3); /* oscurece ligeramente */
+  z-index: 1;
+}
+
+/* Asegura que el formulario esté por encima del blur */
+.mi-registro form {
+  position: relative;
+  z-index: 2;
+}
+
+/* Ajuste visual para coherencia con login */
+.registroUsuarios {
+  max-width: 580px;
+  animation: fadeIn 0.8s ease;
+}
+
+.registroUsuarios h2 {
+  color: #222;
+  font-weight: 600;
+}
