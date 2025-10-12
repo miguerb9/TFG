@@ -13,11 +13,11 @@ $user = $_SESSION['user'];
 include_once __DIR__ . '/../includes/header.php';
 include_once __DIR__ . '/../includes/navbar.php';
 ?>
-
-<div class="text-center mt-5">
+<main>
+  <div class="text-center mt-5">
   <h1 class="mb-4">Bienvenido, <?= htmlspecialchars($user['nombre']) ?> 👋</h1>
   <p class="lead">Selecciona el deporte que quieres reservar:</p>
-</div>
+  </div>
 
   <div class="container text-center mt-4">
     <h1 class="mb-4">Reserva tu pista</h1>
@@ -63,8 +63,9 @@ include_once __DIR__ . '/../includes/navbar.php';
         </div>
       </a>
     </div>
+   </div>
   </div>
-</div>
+</main>
 
 <?php include_once __DIR__ . '/../includes/footer.php'; ?>
 </body>
