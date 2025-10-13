@@ -33,21 +33,21 @@ class Pista {
     }
 
     // 🔹 Crear una nueva pista (opcional, para admin)
-    public static function crear($nombre, $deporte, $precio_hora, $disponibilidad) {
+    public static function crear($nombre, $deporte, $precio_hora) {
         global $conn;
-        $sql = "INSERT INTO pista (nombre, deporte, precio_hora, disponibilidad)
-                VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO pista (nombre, deporte, precio_hora)
+                VALUES (?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ssdi", $nombre, $deporte, $precio_hora, $disponibilidad);
+        $stmt->bind_param("ssd", $nombre, $deporte, $precio_hora);
         return $stmt->execute();
     }
 
     // 🔹 Actualizar una pista (opcional)
-    public static function actualizar($id_pista, $nombre, $deporte, $precio_hora, $disponibilidad) {
+    public static function actualizar($id_pista, $nombre, $deporte, $precio_hora) {
         global $conn;
-        $sql = "UPDATE pista SET nombre=?, deporte=?, precio_hora=?, disponibilidad=? WHERE id_pista=?";
+        $sql = "UPDATE pista SET nombre=?, deporte=?, precio_hora=? WHERE id_pista=?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ssdii", $nombre, $deporte, $precio_hora, $disponibilidad, $id_pista);
+        $stmt->bind_param("ssdi", $nombre, $deporte, $precio_hora, $id_pista);
         return $stmt->execute();
     }
 
