@@ -26,7 +26,7 @@ include_once __DIR__ . '/../includes/navbar.php';
       
     <!-- Pádel -->
     <div class="col-6 col-md-3">
-      <a href="reserva_padel.php" class="sport-card">
+      <a href="pistasPadel.php" class="sport-card">
         <img src="img/padel.png" alt="Pádel" class="img-fluid">
         <div class="sport-overlay">
           <span>Pádel</span>
@@ -36,7 +36,7 @@ include_once __DIR__ . '/../includes/navbar.php';
 
     <!-- Fútbol -->
     <div class="col-6 col-md-3">
-      <a href="reserva_futbol.php" class="sport-card">
+      <a href="pistasFutbol.php" class="sport-card">
         <img src="img/futbol.png" alt="Fútbol" class="img-fluid">
         <div class="sport-overlay">
           <span>Fútbol</span>
@@ -46,7 +46,7 @@ include_once __DIR__ . '/../includes/navbar.php';
 
     <!-- Tenis -->
     <div class="col-6 col-md-3">
-      <a href="reserva_tenis.php" class="sport-card">
+      <a href="pistasTenis.php" class="sport-card">
         <img src="img/tenis.png" alt="Tenis" class="img-fluid">
         <div class="sport-overlay">
           <span>Tenis</span>
@@ -56,7 +56,7 @@ include_once __DIR__ . '/../includes/navbar.php';
 
     <!-- Baloncesto -->
     <div class="col-6 col-md-3">
-      <a href="reserva_baloncesto.php" class="sport-card">
+      <a href="pistasBaloncesto.php" class="sport-card">
         <img src="img/baloncesto.png" alt="Baloncesto" class="img-fluid">
         <div class="sport-overlay">
           <span>Baloncesto</span>

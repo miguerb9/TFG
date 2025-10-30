@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once __DIR__ . '/../controllers/PistaController.php';
 require_once __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/navbar.php';
@@ -23,7 +24,7 @@ $pistas = PistaController::listarPorDeporte('padel');
               <h5 class="card-title"><?= htmlspecialchars($pista['nombre']) ?></h5>
               <p class="card-text mb-2">💶 <strong><?= htmlspecialchars($pista['precio_hora']) ?> €/hora</strong></p>
 
-              <a href="calendario_padel.php?pista_id=<?= $pista['id_pista'] ?>" 
+              <a href="calendario.php?pista_id=<?= $pista['id_pista'] ?>"
                  class="btn btn-success w-100">
                 Reservar
               </a>
@@ -31,6 +32,7 @@ $pistas = PistaController::listarPorDeporte('padel');
           </div>
         </div>
       <?php endforeach; ?>
+
     </div>
   </div>
 </main>
