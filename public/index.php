@@ -68,5 +68,3 @@ include_once __DIR__ . '/../includes/navbar.php';
 </main>
 
 <?php include_once __DIR__ . '/../includes/footer.php'; ?>
-</body>
-</html>

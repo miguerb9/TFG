@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         // Redirigir según el rol
         if ($usuario['rol'] === 'administrador') {
-            header("Location: ../public/admin/index.php");
+            header("Location: ../public/admin/indexAdmin.php");
         } else {
             header("Location: ../public/index.php");
         }

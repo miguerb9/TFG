@@ -38,5 +38,4 @@ include_once __DIR__ . '/../includes/navbar.php';
   </div>
 </main>
 <?php include_once __DIR__ . '/../includes/footer.php'; ?>
-</body>
-</html>
+

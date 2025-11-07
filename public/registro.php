@@ -45,5 +45,4 @@ require_once __DIR__ . '/../includes/navbar.php';
 // Incluir el footer
 require_once __DIR__ . '/../includes/footer.php';
 ?>
-</body>
-</html>
+

@@ -38,5 +38,3 @@ $pistas = PistaController::listarPorDeporte('baloncesto');
 </main>
 
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>
-</body>
-</html>
