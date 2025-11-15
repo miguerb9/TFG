@@ -23,10 +23,7 @@ $pista_nombre = $pista['nombre'] ?? 'Desconocida';
 if (!$pista_id) {
     header('Location: /TFG3/public/pistasPadel.php');
     exit();
-} else {
-    $nombre = $_SESSION['user']['nombre'] ?? 'Usuario';
-    echo "<h1>Éxito, " . htmlspecialchars($nombre) . ", tu pista es " . htmlspecialchars($pista_id) . "</h1>";
-}
+} 
 
 // Variables iniciales
 $mensaje = '';
@@ -77,7 +74,7 @@ for ($i = 8; $i < 22; $i++) {
 // Cancelar una reserva
 if (isset($_POST['cancelar_reserva'])) {
     $id_reserva = $_POST['cancelar_reserva'];
-    $resultado = ReservaController::eliminarReserva($id_reserva);
+    $resultado = ReservaController::eliminar($id_reserva);
 
     $mensaje = $resultado['success']
         ? "<div class='alert alert-warning text-center'>🗑️ {$resultado['message']}</div>"
@@ -175,10 +172,5 @@ if (isset($_POST['cancelar_reserva'])) {
     
     </div>
 </main>
-</body>
 <?php require_once __DIR__ . '/../includes/footer.php'; ?>
-</html>
 
-
-
-  

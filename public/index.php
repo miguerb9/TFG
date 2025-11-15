@@ -12,7 +12,18 @@ $user = $_SESSION['user'];
 // Incluir cabecera (con Bootstrap y navbar)
 include_once __DIR__ . '/../includes/header.php';
 include_once __DIR__ . '/../includes/navbar.php';
+
+if ($user['rol'] === 'administrador'): ?>
+  <div class="text-center mb-4">
+    <a href="admin/indexAdmin.php"
+       class="btn btn-light border border-2 rounded-4 px-4 py-3 fw-semibold shadow-sm sport-card"
+       style="transition: all 0.3s ease;">
+      ⚙️ Volver al Panel de Administrador
+    </a>
+  </div>
+<?php endif;
 ?>
+
 <main>
   <div class="text-center mt-5">
   <h1 class="mb-4">Bienvenido, <?= htmlspecialchars($user['nombre']) ?> 👋</h1>

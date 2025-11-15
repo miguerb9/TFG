@@ -3,7 +3,7 @@ require_once __DIR__ . '/../config/db.php';
 
 class Pista {
 
-    // 🔹 Obtener todas las pistas
+    // Obtener todas las pistas
     public static function obtenerTodas() {
         global $conn;
         $sql = "SELECT * FROM pista";
@@ -11,7 +11,7 @@ class Pista {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    // 🔹 Obtener pistas por deporte (p.ej. 'padel')
+    // Obtener pistas por deporte 
     public static function obtenerPorDeporte($deporte) {
         global $conn;
         $sql = "SELECT * FROM pista WHERE deporte = ?";
@@ -22,7 +22,7 @@ class Pista {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    // 🔹 Obtener una pista por su ID
+    // Obtener una pista por su ID
     public static function obtenerPorId($id_pista) {
         global $conn;
         $sql = "SELECT * FROM pista WHERE id_pista = ?";
@@ -32,7 +32,7 @@ class Pista {
         return $stmt->get_result()->fetch_assoc();
     }
 
-    // 🔹 Crear una nueva pista (opcional, para admin)
+    // Crear una nueva pista (admin)
     public static function crear($nombre, $deporte, $precio_hora) {
         global $conn;
         $sql = "INSERT INTO pista (nombre, deporte, precio_hora)
@@ -42,7 +42,7 @@ class Pista {
         return $stmt->execute();
     }
 
-    // 🔹 Actualizar una pista (opcional)
+    // Actualizar una pista (admin)
     public static function actualizar($id_pista, $nombre, $deporte, $precio_hora) {
         global $conn;
         $sql = "UPDATE pista SET nombre=?, deporte=?, precio_hora=? WHERE id_pista=?";
@@ -51,7 +51,7 @@ class Pista {
         return $stmt->execute();
     }
 
-    // 🔹 Eliminar pista (opcional)
+    // Eliminar pista (admin)
     public static function eliminar($id_pista) {
         global $conn;
         $sql = "DELETE FROM pista WHERE id_pista = ?";

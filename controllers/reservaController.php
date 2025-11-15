@@ -3,29 +3,28 @@ require_once __DIR__ . '/../models/Reserva.php';
 
 class ReservaController {
 
-    // 🔹 Mostrar todas las reservas (admin o para pruebas)
+    // Listar todas las reservas (solo admin o para depuración)
     public static function listarTodas() {
         return Reserva::obtenerTodas();
     }
 
-    // 🔹 Listar reservas de un usuario
+    // Listar reservas por usuario
     public static function listarPorUsuario($usuario_id) {
         return Reserva::obtenerPorUsuario($usuario_id);
     }
 
-    // 🔹 Listar reservas de una pista específica
+    // Listar reservas por pista
     public static function listarPorPista($pista_id) {
         return Reserva::obtenerPorPista($pista_id);
     }
 
-    // 🔹 Obtener detalles de una reserva concreta
-    public static function obtenerPorId($id_reserva) {
+    // Obtener una reserva por su ID
+    public static function verReserva($id_reserva) {
         return Reserva::obtenerPorId($id_reserva);
     }
 
-    // 🔹 Crear una reserva (con comprobación de solapamiento)
+    // Crear una nueva reserva (con comprobación de solapamientos)
     public static function crearReserva($usuario_id, $pista_id, $fecha_reserva, $hora_inicio, $hora_fin, $estado = 'pendiente') {
-        // Comprobamos si ya hay una reserva en ese horario
         if (Reserva::existeReserva($pista_id, $fecha_reserva, $hora_inicio, $hora_fin)) {
             return [
                 'success' => false,
@@ -35,21 +34,12 @@ class ReservaController {
 
         $resultado = Reserva::crear($usuario_id, $pista_id, $fecha_reserva, $hora_inicio, $hora_fin, $estado);
 
-        if ($resultado) {
-            return [
-                'success' => true,
-                'message' => '✅ Reserva creada correctamente.'
-            ];
-        } else {
-            global $conn;
-            return [
-                'success' => false,
-                'message' => '❌ Error al crear la reserva: ' . $conn->error
-            ];
-        }
+        return $resultado
+            ? ['success' => true, 'message' => '✅ Reserva creada correctamente.']
+            : ['success' => false, 'message' => '❌ Error al crear la reserva.'];
     }
 
-    // 🔹 Actualizar una reserva existente
+    // Actualizar una reserva existente
     public static function actualizarReserva($id_reserva, $fecha_reserva, $hora_inicio, $hora_fin, $estado) {
         $resultado = Reserva::actualizar($id_reserva, $fecha_reserva, $hora_inicio, $hora_fin, $estado);
 
@@ -58,8 +48,8 @@ class ReservaController {
             : ['success' => false, 'message' => '❌ Error al actualizar la reserva.'];
     }
 
-    // 🔹 Eliminar una reserva
-    public static function eliminarReserva($id_reserva) {
+    // Eliminar una reserva
+    public static function eliminar($id_reserva) {
         $resultado = Reserva::eliminar($id_reserva);
 
         return $resultado
