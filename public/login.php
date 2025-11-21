@@ -3,8 +3,8 @@ session_start();
 
 // Si el usuario ya está logueado, lo mandamos al index
 if (isset($_SESSION['user'])) {
-    header("Location: index.php");
-    exit;
+  header("Location: index.php");
+  exit;
 }
 
 include_once __DIR__ . '/../includes/header.php';
@@ -22,7 +22,7 @@ include_once __DIR__ . '/../includes/navbar.php';
   <div class="login-form-container d-flex align-items-center justify-content-center">
     <div class="login-card bg-white p-4 rounded shadow text-center">
       <h2 class="mb-4">Iniciar sesión</h2>
-      <form action="../controllers/loginController.php" method="POST">
+      <form action="../controllers/procesarLogin.php" method="POST">
         <div class="mb-3 text-start">
           <label for="email" class="form-label">Correo Electrónico</label>
           <input type="email" name="email" class="form-control" id="email" required>
@@ -38,4 +38,3 @@ include_once __DIR__ . '/../includes/navbar.php';
   </div>
 </main>
 <?php include_once __DIR__ . '/../includes/footer.php'; ?>
-

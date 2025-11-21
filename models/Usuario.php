@@ -1,17 +1,20 @@
 <?php
 require_once __DIR__ . '/../config/db.php';
 
-class Usuario {
+class Usuario
+{
 
     // Obtener todos los usuarios
-    public static function obtenerTodos() {
+    public static function obtenerTodos()
+    {
         global $conn;
         $result = $conn->query("SELECT * FROM usuario");
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     // Obtener un usuario por su ID
-    public static function obtenerPorId($id_usuario) {
+    public static function obtenerPorId($id_usuario)
+    {
         global $conn;
         $sql = "SELECT * FROM usuario WHERE id_usuario = ?";
         $stmt = $conn->prepare($sql);
@@ -21,7 +24,8 @@ class Usuario {
     }
 
     // Obtener un usuario por su email
-    public static function obtenerPorEmail($email) {
+    public static function obtenerPorEmail($email)
+    {
         global $conn;
         $sql = "SELECT * FROM usuario WHERE email = ?";
         $stmt = $conn->prepare($sql);
@@ -31,7 +35,8 @@ class Usuario {
     }
 
     // Registrar un nuevo usuario
-    public static function registrar($nombre, $email, $password, $rol = 'cliente') {
+    public static function registrar($nombre, $email, $password, $rol = 'cliente')
+    {
         global $conn;
         $hash = password_hash($password, PASSWORD_BCRYPT);
         $sql = "INSERT INTO usuario (nombre, email, contrasena, rol) VALUES (?, ?, ?, ?)";
@@ -41,7 +46,8 @@ class Usuario {
     }
 
     // Actualizar usuario
-    public static function actualizar($id_usuario, $nombre, $email, $rol) {
+    public static function actualizar($id_usuario, $nombre, $email, $rol)
+    {
         global $conn;
         $sql = "UPDATE usuario SET nombre = ?, email = ?, rol = ? WHERE id_usuario = ?";
         $stmt = $conn->prepare($sql);
@@ -50,7 +56,8 @@ class Usuario {
     }
 
     // Eliminar usuario
-    public static function eliminar($id_usuario) {
+    public static function eliminar($id_usuario)
+    {
         global $conn;
         $sql = "DELETE FROM usuario WHERE id_usuario = ?";
         $stmt = $conn->prepare($sql);
@@ -58,4 +65,3 @@ class Usuario {
         return $stmt->execute();
     }
 }
-?>

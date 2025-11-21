@@ -5,17 +5,17 @@ require_once __DIR__ . '/../includes/navbar.php';
 ?>
 
 <!--Imágenes de fondo-->
-  <!-- 4 imágenes del fondo -->
-  <div class="bg-img top-left"></div>
-  <div class="bg-img top-right"></div>
-  <div class="bg-img bottom-left"></div>
-  <div class="bg-img bottom-right"></div>
+<!-- 4 imágenes del fondo -->
+<div class="bg-img top-left"></div>
+<div class="bg-img top-right"></div>
+<div class="bg-img bottom-left"></div>
+<div class="bg-img bottom-right"></div>
 
 <!-- Formulario de registro -->
 <div class="mi-registro">
   <div class="container d-flex justify-content-center align-items-center h-100">
     <div class="col-md-6 col-lg-4">
-      <form action="../controllers/registroController.php" method="POST" class="registroUsuarios p-4 shadow rounded bg-white">
+      <form action="../controllers/procesarRegistro.php" method="POST" class="registroUsuarios p-4 shadow rounded bg-white">
         <h2 class="text-center mb-4">Registro de usuario</h2>
 
         <div class="mb-3">
@@ -45,4 +45,3 @@ require_once __DIR__ . '/../includes/navbar.php';
 // Incluir el footer
 require_once __DIR__ . '/../includes/footer.php';
 ?>
-
