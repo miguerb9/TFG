@@ -150,7 +150,7 @@ main {
 }
 
 /*registro.php*/
-/* --- Fondo del registro (mismo set de imágenes, más desenfocado) --- */
+/* --- Fondo desenfocado --- */
 .mi-registro {
   position: relative;
   height: calc(100vh - 180px);
@@ -166,7 +166,7 @@ main {
   content: "";
   position: fixed;
   inset: 0;
-  backdrop-filter: blur(5px); /* 👈 aplica desenfoque */
+  backdrop-filter: blur(5px); /* aplica desenfoque */
   background: rgba(0, 0, 0, 0.3); /* oscurece ligeramente */
   z-index: 1;
 }

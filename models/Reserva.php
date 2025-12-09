@@ -1,10 +1,12 @@
 <?php
 require_once __DIR__ . '/../config/db.php';
 
-class Reserva {
+class Reserva
+{
 
     // Obtener todas las reservas
-    public static function obtenerTodas() {
+    public static function obtenerTodas()
+    {
         global $conn;
         $sql = "SELECT * FROM reserva ORDER BY fecha_reserva DESC, hora_inicio ASC";
         $result = $conn->query($sql);
@@ -12,7 +14,8 @@ class Reserva {
     }
 
     // Obtener reservas por usuario
-    public static function obtenerPorUsuario($usuario_id) {
+    public static function obtenerPorUsuario($usuario_id)
+    {
         global $conn;
         $sql = "SELECT * FROM reserva WHERE usuario_id = ? ORDER BY fecha_reserva DESC";
         $stmt = $conn->prepare($sql);
@@ -22,7 +25,8 @@ class Reserva {
     }
 
     // Obtener reservas por pista
-    public static function obtenerPorPista($pista_id) {
+    public static function obtenerPorPista($pista_id)
+    {
         global $conn;
         $sql = "SELECT * FROM reserva WHERE pista_id = ? ORDER BY fecha_reserva, hora_inicio";
         $stmt = $conn->prepare($sql);
@@ -32,7 +36,8 @@ class Reserva {
     }
 
     // Obtener reserva por ID
-    public static function obtenerPorId($id_reserva) {
+    public static function obtenerPorId($id_reserva)
+    {
         global $conn;
         $sql = "SELECT * FROM reserva WHERE id_reserva = ?";
         $stmt = $conn->prepare($sql);
@@ -42,7 +47,8 @@ class Reserva {
     }
 
     // Crear nueva reserva
-    public static function crear($usuario_id, $pista_id, $fecha_reserva, $hora_inicio, $hora_fin, $estado = 'pendiente') {
+    public static function crear($usuario_id, $pista_id, $fecha_reserva, $hora_inicio, $hora_fin, $estado = 'pendiente')
+    {
         global $conn;
         $sql = "INSERT INTO reserva (usuario_id, pista_id, fecha_reserva, hora_inicio, hora_fin, estado)
                 VALUES (?, ?, ?, ?, ?, ?)";
@@ -52,7 +58,8 @@ class Reserva {
     }
 
     // Actualizar reserva
-    public static function actualizar($id_reserva, $fecha_reserva, $hora_inicio, $hora_fin, $estado) {
+    public static function actualizar($id_reserva, $fecha_reserva, $hora_inicio, $hora_fin, $estado)
+    {
         global $conn;
         $sql = "UPDATE reserva 
                 SET fecha_reserva = ?, hora_inicio = ?, hora_fin = ?, estado = ? 
@@ -63,7 +70,8 @@ class Reserva {
     }
 
     // Eliminar reserva
-    public static function eliminar($id_reserva) {
+    public static function eliminar($id_reserva)
+    {
         global $conn;
         $sql = "DELETE FROM reserva WHERE id_reserva = ?";
         $stmt = $conn->prepare($sql);
@@ -72,7 +80,8 @@ class Reserva {
     }
 
     // Comprobar solapamientos (ya existe reserva en ese horario)
-    public static function existeReserva($pista_id, $fecha_reserva, $hora_inicio, $hora_fin) {
+    public static function existeReserva($pista_id, $fecha_reserva, $hora_inicio, $hora_fin)
+    {
         global $conn;
         $sql = "SELECT COUNT(*) AS total 
                 FROM reserva 
@@ -89,5 +98,3 @@ class Reserva {
         return $result['total'] > 0;
     }
 }
-?>
-

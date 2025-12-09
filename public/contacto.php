@@ -7,7 +7,7 @@ require_once __DIR__ . '/../includes/navbar.php';
 <main class="container mt-5">
   <h1 class="text-center mb-4">🏟️ Sobre Nosotros</h1>
   <p class="lead text-center mb-5">
-    Conoce más sobre <strong>MatchPoint</strong>, la plataforma líder en reservas de pistas deportivas.
+    Conoce más sobre <strong>Matchium</strong>, la plataforma líder en reservas de pistas deportivas.
   </p>
 
   <!-- Botones interactivos -->
@@ -22,7 +22,7 @@ require_once __DIR__ . '/../includes/navbar.php';
     <h3>Haz clic en una sección para saber más 👇</h3>
   </div>
 
-  
+
 </main>
 
 

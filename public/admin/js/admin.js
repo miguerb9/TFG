@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
       : hour < 19
       ? "¡Buenas tardes!"
       : "¡Buenas noches!";
-  subtitle.textContent = `${saludo} Bienvenido al panel.`;
+  subtitle.textContent = `${saludo} Elija una acción.`;
 
   // Mostrar todo suavemente
   setTimeout(() => {

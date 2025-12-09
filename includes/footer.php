@@ -1,5 +1,5 @@
 <footer class="footer">
-  <p class="mb-2">&copy; <?= date('Y') ?> - MatchPoint</p>
+  <p class="mb-2">&copy; <?= date('Y') ?> - Matchium</p>
   <p class="mb-2">Síguenos en nuestras redes sociales:</p>
   <div class="social-icons mb-2">
     <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
@@ -16,4 +16,5 @@
 
 <script src="../public/js/main.js"></script>
 </body>
+
 </html>

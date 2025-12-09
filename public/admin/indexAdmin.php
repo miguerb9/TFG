@@ -3,8 +3,8 @@ session_start();
 
 // Comprobamos que el usuario esté logueado y sea administrador
 if (!isset($_SESSION['user']) || $_SESSION['user']['rol'] !== 'administrador') {
-    header("Location: ../login.php");
-    exit;
+  header("Location: ../login.php");
+  exit;
 }
 
 $user = $_SESSION['user'];
@@ -14,15 +14,14 @@ include '../../includes/navbar.php';
 ?>
 <div class="text-center mb-4">
   <a href="/TFG3/public/index.php"
-     class="btn btn-light border border-2 rounded-4 px-4 py-3 fw-semibold shadow-sm sport-card"
-     style="transition: all 0.3s ease;">
+    class="btn btn-light border border-2 rounded-4 px-4 py-3 fw-semibold shadow-sm sport-card"
+    style="transition: all 0.3s ease;">
     🏠 Ir a la Vista de Cliente
   </a>
 </div>
-
-<main class="container text-center py-5" style="min-height: 80vh;">
+<main class="container text-center py-5">
   <h1 id="adminTitle" class="fw-bold mb-4">Bienvenido al panel de administración, <?= htmlspecialchars($user['nombre']) ?></h1>
-  <p id="adminSub" class="text-muted mb-5">Cargando tus estadísticas...</p>
+  <p id="adminSub" class="text-muted mb-5"></p>
 
   <section id="adminCards" class="d-flex flex-wrap justify-content-center gap-4 mt-5" style="opacity:0;">
     <div class="card shadow-lg border-0 p-4 admin-card" data-link="usuariosAdmin.php" style="width: 230px; cursor:pointer; border-radius:15px;">
@@ -45,7 +44,7 @@ include '../../includes/navbar.php';
 
 
 
+
 <?php include '../../includes/footer.php'; ?>
 <script src="js/admin.js"></script>
 </body>
-</html>
