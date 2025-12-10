@@ -39,12 +39,17 @@ class Usuario
     {
         global $conn;
         $hash = password_hash($password, PASSWORD_BCRYPT);
+
         $sql = "INSERT INTO usuario (nombre, email, contrasena, rol) VALUES (?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("ssss", $nombre, $email, $hash, $rol);
-        return $stmt->execute();
-    }
 
+        if ($stmt->execute()) {
+            return $conn->insert_id; // 👈 DEVUELVE EL ID DEL NUEVO USUARIO
+        }
+
+        return false;
+    }
     // Actualizar usuario
     public static function actualizar($id_usuario, $nombre, $email, $rol)
     {

@@ -1,8 +1,6 @@
 <?php
 require_once __DIR__ . '/../models/Usuario.php';
 
-
-
 class UsuarioController
 {
 
@@ -37,7 +35,7 @@ class UsuarioController
             $nombre = trim($_POST['nombre'] ?? '');
             $email = trim($_POST['email'] ?? '');
             $password = trim($_POST['password'] ?? '');
-            $rol = 'cliente'; // 👈 por defecto, todos los usuarios nuevos son clientes
+            $rol = 'cliente';
 
             // Validar campos vacíos
             if (empty($nombre) || empty($email) || empty($password)) {
@@ -59,10 +57,12 @@ class UsuarioController
             }
 
             // Registrar el usuario
-            if (Usuario::registrar($nombre, $email, $password, $rol)) {
-                // Iniciar sesión automáticamente
+            $idNuevoUsuario = Usuario::registrar($nombre, $email, $password, $rol);
+
+            if ($idNuevoUsuario) {
                 session_start();
                 $_SESSION['user'] = [
+                    'id' => $idNuevoUsuario,     //  ✔ ID correcto en la sesión
                     'nombre' => $nombre,
                     'email' => $email,
                     'rol' => $rol
@@ -93,13 +93,12 @@ class UsuarioController
 
             if ($usuario && password_verify($password, $usuario['contrasena'])) {
                 $_SESSION['user'] = [
-                    'id' => $usuario['id_usuario'],
+                    'id' => $usuario['id_usuario'],  // ✔ también correcto
                     'nombre' => $usuario['nombre'],
                     'email' => $usuario['email'],
                     'rol' => $usuario['rol']
                 ];
 
-                // Redirigir según el rol
                 if ($usuario['rol'] === 'administrador') {
                     header("Location: ../public/admin/indexAdmin.php");
                 } else {
